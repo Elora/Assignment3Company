@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="kb50.companyx.AddLocation" >
+
+    <EditText
+        android:id="@+id/countryField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addressField"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="74dp"
+        android:ems="10"
+        android:hint="@string/country" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addLocationButton"
+        android:layout_alignBottom="@+id/addLocationButton"
+        android:layout_alignRight="@+id/cityField"
+        android:text="Back" />
+
+    <EditText
+        android:id="@+id/cityField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addressField"
+        android:layout_below="@+id/countryField"
+        android:ems="10"
+        android:hint="@string/city" />
+
+    <Button
+        android:id="@+id/addLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addressField"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/back"
+        android:text="@string/add" />
+
+    <EditText
+        android:id="@+id/addressField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/back"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/address" />
+
+</RelativeLayout>
