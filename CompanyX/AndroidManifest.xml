@@ -5,13 +5,10 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="7"
         android:targetSdkVersion="21" />
 
-    
-     
-    <uses-permission android:name="kb50.companyx.GRANT_PRSN"
-        android:maxSdkVersion="21" />
+    <uses-permission android:name="kb50.companyxcontentprovider.GET" />
 
     <application
         android:allowBackup="true"
@@ -31,6 +28,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddCompany"
+            android:label="@string/add_company" >
+        </activity>
+        <activity
+            android:name=".AddLocation"
+            android:label="@string/title_activity_add_location" >
+        </activity>
+        <activity
+            android:name=".AddOffice"
+            android:label="@string/title_activity_add_office" >
+        </activity>
+        <activity
+            android:name=".UpdateCompany"
+            android:label="@string/title_activity_update_company" >
+        </activity>
+
     </application>
 
 </manifest>

@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
-import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -30,6 +32,34 @@ public class CompanyList extends ListActivity {
 
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	
+	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		
+		int id = item.getItemId();
+		if (id == R.id.add_company) {
+			startActivity(new Intent(this,AddCompany.class));
+		}
+		if (id == R.id.add_location) {
+			startActivity(new Intent(this,AddLocation.class));
+		}
+		if (id == R.id.add_office) {
+			startActivity(new Intent(this,AddOffice.class));
+		}
+		
+		return true;
+	}
+	
 	public List<Company> getAllCompanies() {
 		List<Company> companies = new ArrayList<Company>();
 
@@ -42,6 +72,7 @@ public class CompanyList extends ListActivity {
 		while (!cursor.isAfterLast()) {
 			Company company = new Company();
 
+			
 			company.setId(cursor.getInt(0));
 			company.setName(cursor.getString(1));
 			company.setInfo(cursor.getString(2));
@@ -58,27 +89,20 @@ public class CompanyList extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState); // ---no need to call this---
-		Company c = new Company();
-		c.setInfo("some commpany info");
-		c.setName("Google inc");
-		c.setSite("Google.com");
 		
 		
-		ContentValues companyValues = new ContentValues();
-		companyValues.put("name", c.getName());
-		companyValues.put("website", c.getSite());
-		companyValues.put("info", c.getInfo());
-		
-		getContentResolver().insert(Uri.parse("content://com.example.appcontentprovider.CompanyProvider/company"), companyValues);
-		stringToArr();// //setContentView(R.layout.main);
+		stringToArr(); //setContentView(R.layout.main);
 		setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, companies));
 	}
 
 	@Override
 	public void onListItemClick(ListView parent, View v, int position, long id) {
-		Toast.makeText(this, "You have selected " + companies[position],
-				Toast.LENGTH_SHORT).show();
+		
+		Intent i = new Intent(this,UpdateCompany.class);
+		i.putExtra("companyId",companyList.get(position).getId());
+		startActivity(i);
+	
 	}
 
 }
