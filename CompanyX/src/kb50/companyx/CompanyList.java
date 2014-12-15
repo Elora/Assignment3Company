@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class CompanyList extends ListActivity {
 
@@ -35,7 +34,7 @@ public class CompanyList extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.menu, menu);
 		return true;
 	}
 
@@ -65,7 +64,7 @@ public class CompanyList extends ListActivity {
 
 		Cursor cursor = getContentResolver()
 				.query(Uri
-						.parse("content://com.example.appcontentprovider.CompanyProvider/company"),
+						.parse("content://kb50.companyxcontent.companyxcontentprovider/company"),
 						null, null, null, null);
 
 		cursor.moveToFirst();
@@ -88,12 +87,13 @@ public class CompanyList extends ListActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState); // ---no need to call this---
+		super.onCreate(savedInstanceState); 
 		
 		
-		stringToArr(); //setContentView(R.layout.main);
+		stringToArr(); 
 		setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, companies));
+		
 	}
 
 	@Override

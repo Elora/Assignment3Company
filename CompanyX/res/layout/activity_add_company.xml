@@ -7,17 +7,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="kb50.companyx.AddCompany" >
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/infoField"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/infoField"
-        android:layout_marginBottom="85dp"
-        android:onClick="onClick"
-        android:text="@string/add" />
     
 
     <EditText
@@ -29,7 +18,6 @@
         android:ems="10"
         android:hint="@string/info"
         android:inputType="textMultiLine" >
-
         <requestFocus />
     </EditText>
 
@@ -51,5 +39,42 @@
         android:layout_alignLeft="@+id/websiteField"
         android:ems="10"
         android:hint="@string/name" />
+
+    <TextView
+        android:id="@+id/viewOffice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/infoField"
+        android:layout_below="@+id/infoField"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/add_office"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addButton"
+        android:layout_below="@+id/viewOffice"
+        android:onClick="onClick"
+        android:text="@string/add_office" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/viewOffice"
+        android:layout_alignRight="@+id/infoField"
+        android:layout_below="@+id/add_office"
+        android:onClick="onClick"
+        android:text="@string/add" />
+
+    <Button
+        android:id="@+id/addImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addButton"
+        android:layout_toRightOf="@+id/add_office"
+        android:onClick="onClick"
+        android:text="Add image" />
 
 </RelativeLayout>

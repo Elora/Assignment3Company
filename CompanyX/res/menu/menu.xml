@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/add_company" android:title="@string/add_company"></item>
+    <item android:id="@+id/add_location" android:title="@string/add_location"></item>
+    <item android:id="@+id/add_office" android:title="@string/add_office"></item>
+    
+
+</menu>

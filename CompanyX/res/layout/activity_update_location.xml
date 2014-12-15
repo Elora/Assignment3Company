@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="kb50.companyx.AddLocation" >
+    tools:context="kb50.companyx.UpdateLocation" >
 
     <EditText
         android:id="@+id/countryField"
@@ -22,8 +22,8 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addLocationButton"
-        android:layout_alignBottom="@+id/addLocationButton"
+        android:layout_alignBaseline="@+id/updateButton"
+        android:layout_alignBottom="@+id/updateButton"
         android:layout_alignRight="@+id/cityField"
         android:onClick="onClick"
         android:text="@string/back" />
@@ -38,14 +38,14 @@
         android:hint="@string/city" />
 
     <Button
-        android:id="@+id/addLocationButton"
+        android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/addressField"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/back"
         android:onClick="onClick"
-        android:text="@string/add" />
+        android:text="@string/update" />
 
     <EditText
         android:id="@+id/addressField"
@@ -55,5 +55,15 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/address" />
+
+    <Button
+        android:id="@+id/removeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/updateButton"
+        android:layout_alignRight="@+id/back"
+        android:layout_below="@+id/updateButton"
+        android:onClick="onClick"
+        android:text="@string/remove" />
 
 </RelativeLayout>

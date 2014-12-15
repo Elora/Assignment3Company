@@ -6,15 +6,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="kb50.companyx.AddOffice" >
+    tools:context="kb50.companyx.UpdateOffice" >
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/add_locationButton"
         android:layout_alignBottom="@+id/add_locationButton"
-        android:layout_alignRight="@+id/phoneField"
+        android:layout_alignRight="@+id/telUpdate"
         android:onClick="onClick"
         android:text="@string/back" />
 
@@ -22,38 +22,48 @@
         android:id="@+id/add_locationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/phoneField"
+        android:layout_alignLeft="@+id/telUpdate"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/button2"
+        android:layout_toLeftOf="@+id/back"
         android:onClick="onClick"
-        android:text="@string/add_location" />
+        android:text="@string/edit_location" />
 
     <EditText
-        android:id="@+id/phoneField"
+        android:id="@+id/telUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/back"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/enter_phone"
-        android:inputType="phone" />
+        android:inputType="text" />
 
     <Button
         android:id="@+id/addOfficeButton"
         android:layout_width="fill_parent"
-        android:onClick="onClick"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/add_locationButton"
-        android:layout_alignRight="@+id/button2"
-        android:layout_below="@+id/button2"
-        android:text="@string/add" />
+        android:layout_alignRight="@+id/back"
+        android:layout_below="@+id/back"
+        android:onClick="onClick"
+        android:text="@string/update" />
 
     <TextView
         android:id="@+id/textViewAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/phoneField"
+        android:layout_alignLeft="@+id/telUpdate"
         android:layout_alignParentTop="true"
         android:layout_marginTop="52dp" />
+
+    <Button
+        android:id="@+id/removeButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addOfficeButton"
+        android:layout_alignRight="@+id/addOfficeButton"
+        android:layout_below="@+id/addOfficeButton"
+        android:onClick="onClick"
+        android:text="@string/remove" />
 
 </RelativeLayout>

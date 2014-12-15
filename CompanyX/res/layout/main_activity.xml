@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/locationsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/companiesButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/companiesButton"
+        android:layout_marginTop="130dp"
+        android:onClick="onClick"
+        android:text="@string/locations" />
+
+    <Button
+        android:id="@+id/companiesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/locationsButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"
+        android:text="@string/companies" />
+
+    <Button
+        android:id="@+id/officesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/companiesButton"
+        android:layout_alignRight="@+id/companiesButton"
+        android:layout_below="@+id/companiesButton"
+        android:onClick="onClick"
+        android:text="@string/offices" />
+
+</RelativeLayout>

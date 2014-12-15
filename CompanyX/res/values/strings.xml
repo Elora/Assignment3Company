@@ -28,6 +28,15 @@
     <string name="update">Update</string>
     <string name="remove">Remove</string>
     <string name="back">Back</string>
-
-
+    <string name="title_activity_location_list">Location list</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_image">Add image</string>
+    <string name="title_activity_office_list">Office List</string>
+    <string name="title_activity_update_office">Update office</string>
+    <string name="title_activity_update_location">Update location</string>
+   
+    <string name="companies">companies</string>
+    <string name="offices">offices</string>
+    <string name="locations">locations</string>
+	    <string name="edit_location">Edit location</string>
 </resources>

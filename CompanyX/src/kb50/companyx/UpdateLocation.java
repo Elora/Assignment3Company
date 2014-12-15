@@ -12,43 +12,43 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateCompany extends Activity {
-	private Company c = new Company();
+public class UpdateLocation extends Activity {
+	private Location c = new Location();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_update_company);
+		setContentView(R.layout.activity_update_location);
 
 		Cursor mCursor = getContentResolver()
-				.query(Uri.parse("content://kb50.companyxcontent.companyxcontentprovider/companies/"
-						+ getIntent().getExtras().getInt("companyId")), null,
+				.query(Uri.parse("content://kb50.companyxcontent.companyxcontentprovider/locations/"
+						+ getIntent().getExtras().getInt("locationId")), null,
 						null, null, null);
 
 		mCursor.moveToFirst();
-		String name = mCursor.getString(1);
-		String website = mCursor.getString(2);
-		String info = mCursor.getString(3);
+		String country = mCursor.getString(1);
+		String city = mCursor.getString(2);
+		String address = mCursor.getString(3);
 
-		c.setName(name);
-		c.setSite(website);
-		c.setInfo(info);
+		c.setCountry(country);
+		c.setCity(city);
+		c.setAdress(address);
 
-		EditText nameField = (EditText) findViewById(R.id.nameField);
-		nameField.setText(c.getName());
+		EditText nameField = (EditText) findViewById(R.id.countryField);
+		nameField.setText(c.getCountry());
 
-		EditText websiteField = (EditText) findViewById(R.id.websiteField);
-		websiteField.setText(c.getSite());
+		EditText websiteField = (EditText) findViewById(R.id.cityField);
+		websiteField.setText(c.getCity());
 
-		EditText infoField = (EditText) findViewById(R.id.infoField);
-		infoField.setText(c.getInfo());
+		EditText infoField = (EditText) findViewById(R.id.addressField);
+		infoField.setText(c.getAdress());
 
 	}
-	public void sluit(){
-		
+
+	public void sluit() {
+
 		startActivity(new Intent(this, CompanyList.class));
 
-		
 	};
 
 	public void onClick(View view) {
@@ -57,20 +57,22 @@ public class UpdateCompany extends Activity {
 		case R.id.updateButton:
 			try {
 
-				EditText nameField = (EditText) findViewById(R.id.nameField);
+				EditText countryField = (EditText) findViewById(R.id.countryField);
 
-				EditText websiteField = (EditText) findViewById(R.id.websiteField);
+				EditText cityField = (EditText) findViewById(R.id.cityField);
 
-				EditText infoField = (EditText) findViewById(R.id.infoField);
+				EditText addressField = (EditText) findViewById(R.id.addressField);
 
 				ContentValues values = new ContentValues();
-				values.put("name", nameField.getText().toString());
-				values.put("website", websiteField.getText().toString());
-				values.put("info", infoField.getText().toString());
+				values.put("country", countryField.getText().toString());
+				values.put("city", cityField.getText().toString());
+				values.put("address", addressField.getText().toString());
 
 				getContentResolver()
-						.update(Uri.parse("content://kb50.companyxcontent.companyxcontentprovider/companies/"
-								+ getIntent().getExtras().getInt("companyId")),
+						.update(Uri
+								.parse("content://kb50.companyxcontent.companyxcontentprovider/locations/"
+										+ getIntent().getExtras().getInt(
+												"locationId")),
 								values, null, null);
 
 				Toast toast = Toast.makeText(getApplicationContext(),
@@ -87,14 +89,15 @@ public class UpdateCompany extends Activity {
 				e.printStackTrace();
 			}
 			break;
-		case R.id.backButton:
+		case R.id.back:
 			this.finish();
 
 			break;
 		case R.id.removeButton:
 			new AlertDialog.Builder(this)
 					.setTitle("Delete entry")
-					.setMessage("Are you sure you want to delete this company?")
+					.setMessage(
+							"Are you sure you want to delete this location?")
 					.setPositiveButton(android.R.string.yes,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
@@ -102,10 +105,10 @@ public class UpdateCompany extends Activity {
 
 									getContentResolver()
 											.delete(Uri
-													.parse("content://kb50.companyxcontent.companyxcontentprovider/companies/"
+													.parse("content://kb50.companyxcontent.companyxcontentprovider/locations/"
 															+ getIntent()
 																	.getExtras()
-																	.getInt("companyId")),
+																	.getInt("locationId")),
 													null, null);
 									Toast toast = Toast.makeText(
 											getApplicationContext(),
@@ -113,9 +116,9 @@ public class UpdateCompany extends Activity {
 											Toast.LENGTH_SHORT);
 									toast.show();
 									sluit();
-									
+
 								}
-								
+
 							})
 					.setNegativeButton(android.R.string.no,
 							new DialogInterface.OnClickListener() {
@@ -125,10 +128,15 @@ public class UpdateCompany extends Activity {
 								}
 							}).setIcon(android.R.drawable.ic_dialog_alert)
 					.show();
-		
+
 			break;
 
 		}
+		if (view.getId() == R.id.back) {
 
+			this.finish();
+
+		}
 	}
+
 }
